@@ -223,6 +223,10 @@ class Google_Service_Resource
       $upload = new Google_Http_MediaFileUpload($this->client, $request, $mimeType, $data);
     }
 
+    if (isset($parameters['alt']) && $parameters['alt']['value'] == 'media') {
+      $expected_class = null;
+    }
+    
     return $this->client->execute($request, $expected_class);
   }
 
